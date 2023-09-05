@@ -4,6 +4,7 @@ import getGifs from "../services/getGifs";
 
 export default function ListOfGif({ keyWord }) {
   const [gifs, setGifs] = useState([]);
+  
   useEffect(() => {
     getGifs({ keyWord }).then((gifs) => setGifs(gifs));
   }, [keyWord]);

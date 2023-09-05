@@ -1,7 +1,17 @@
-const apiKey = "udKllbMMJMcdB5ImafYMKim8xXYXYlDd&q";
+const apiKeyGif = "udKllbMMJMcdB5ImafYMKim8xXYXYlDd&q";
+const apiKeySticker = "udKllbMMJMcdB5ImafYMKim8xXYXYlDd&q";
 
 export default function getGifs({ keyWord }) {
-  const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}=${keyWord}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`;
+  const element = keyWord.typeElement;
+  const serch = keyWord.value;
+
+  let apiURL = "";
+  if (element === "Sticker") {
+    apiURL = `https://api.giphy.com/v1/stickers/search?api_key=${apiKeySticker}=${serch}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`;
+  } else {
+    apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKeyGif}=${serch}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`;
+  }
+
   return fetch(apiURL)
     .then((res) => res.json())
     .then((response) => {

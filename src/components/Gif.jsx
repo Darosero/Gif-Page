@@ -16,7 +16,7 @@ export default function Gif({ title, url }) {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(url);
   };
-  
+
   return (
     <Grid maxW="sm" borderWidth="2px" borderRadius="lg">
       <h4>{title}</h4>
@@ -29,21 +29,20 @@ export default function Gif({ title, url }) {
       >
         Open
       </Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size={"sm"}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent >
           <ModalHeader>{title}</ModalHeader>
           <ModalCloseButton />
-          <ModalBody justifyContent={"center"} alignItems={"center"}>
-          <img src={url}
-           />
-          <h1>
-            URL: {url}
-          </h1>
-          </ModalBody>
+          <ModalBody display="flex"
+          alignItems="center"
+          justifyContent="center"
+          p={0} >
+            <img src={url} />
+          </ModalBody >
           <ModalFooter>
-            <Button colorScheme="blue" mr={3}  onClick={copyToClipboard}>
-              Copy
+            <Button colorScheme="blue" mr={3} onClick={copyToClipboard}>
+              Copy URL
             </Button>
           </ModalFooter>
         </ModalContent>

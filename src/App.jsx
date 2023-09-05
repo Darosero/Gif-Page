@@ -10,13 +10,11 @@ import {
   TabPanel,
   TabPanels,
 } from "@chakra-ui/react";
-import ListOfStickers from "./components/ListOfStickers";
 
 function App() {
-  const [keyWord, setKeyword] = useState ("panda");
+  const [keyWord, setKeyword] = useState("panda");
   const [value, setValue] = useState("panda");
-  //const valueGif ="Gif";
-  //const valueSticker = "Sticker";
+
   return (
     <Grid templateColumns="1fr 7fr 1fr">
       <Grid bg="grey"></Grid>
@@ -44,7 +42,7 @@ function App() {
             onClick={() => setValue(keyWord)}
           >
             Buscar
-          </Button>
+          </Button>      
         </Grid>
         <Tabs position="relative" variant="unstyled">
           <TabList>
@@ -60,12 +58,22 @@ function App() {
           <TabPanels>
             <TabPanel>
               <Grid templateColumns="repeat(5, 1fr)" gap={3}>
-                <ListOfStickers keyWord={value} />
+                <ListOfGif
+                  keyWord={{
+                    typeElement: "Sticker",
+                    value: value,
+                  }}
+                />
               </Grid>
             </TabPanel>
             <TabPanel>
               <Grid templateColumns="repeat(5, 1fr)" gap={3}>
-                <ListOfGif keyWord={value} />
+                <ListOfGif
+                  keyWord={{
+                    typeElement: "Gif",
+                    value: value,
+                  }}
+                />
               </Grid>
             </TabPanel>
           </TabPanels>
