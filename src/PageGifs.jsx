@@ -1,4 +1,3 @@
-import "./App.css";
 import { Button, Grid, Input } from "@chakra-ui/react";
 import ListOfGif from "./components/ListOfGif";
 import { useState } from "react";
@@ -11,7 +10,7 @@ import {
   TabPanels,
 } from "@chakra-ui/react";
 
-function App() {
+export default function PageGifs() {
   const [keyWord, setKeyword] = useState("panda");
   const [value, setValue] = useState("panda");
 
@@ -42,7 +41,7 @@ function App() {
             onClick={() => setValue(keyWord)}
           >
             Buscar
-          </Button>      
+          </Button>
         </Grid>
         <Tabs position="relative" variant="unstyled">
           <TabList>
@@ -83,5 +82,3 @@ function App() {
     </Grid>
   );
 }
-
-export default App;

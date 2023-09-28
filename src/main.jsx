@@ -1,11 +1,22 @@
-
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
-import "./index.css";
+import Login from "./Login.jsx";
 import { ChakraProvider } from "@chakra-ui/react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import PageGifs from "./PageGifs.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "PageGifs/",
+    element: <PageGifs />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ChakraProvider>
-    <App />
+    <RouterProvider router={router} />
   </ChakraProvider>
 );
